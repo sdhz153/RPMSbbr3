@@ -1,0 +1,22 @@
+From d257091c3d09d36524e7ed83f74106f4c9e505a5 Mon Sep 17 00:00:00 2001
+From: ashutoshs25 <65936277+ashutoshs25@users.noreply.github.com>
+Date: Thu, 9 Nov 2023 13:20:09 -0500
+Subject: [PATCH] Adding EXPORT_SYMBOL macro for tcp_tso_autosize function, for
+ reference in tcp_bbr1.c
+
+---
+ net/ipv4/tcp_output.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/net/ipv4/tcp_output.c b/net/ipv4/tcp_output.c
+index bf99b17db376..0ce09817e206 100644
+--- a/net/ipv4/tcp_output.c
++++ b/net/ipv4/tcp_output.c
+@@ -2002,6 +2002,7 @@ u32 tcp_tso_autosize(const struct sock *sk, unsigned int mss_now,
+ 
+ 	return max_t(u32, bytes / mss_now, min_tso_segs);
+ }
++EXPORT_SYMBOL(tcp_tso_autosize);
+ 
+ /* Return the number of segments we want in the skb we are transmitting.
+  * See if congestion control module wants to decide; otherwise, autosize.
